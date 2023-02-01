@@ -7,22 +7,54 @@
         font-family: Verdana, sans-serif;
         margin: 0;
       }
-      nav {
-        background-color: rgba(60, 27, 27, 0.58);
-        color: #fff;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.5em;
+      header {
         position: fixed;
         top: 0;
+        left: 0;
+        padding: 20px 10px;
         width: 100%;
         z-index: 1;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        transition: 0.5s;
+        background-color: transparent;
       }
+
+      header.sticky {
+        padding: 5px 10px;
+        background-color: #fff;
+      }
+
+      header.sticky .logo, header.sticky ul li a {
+        color: rgba(125, 5, 5, 0.276);
+      }
+
+      .logo {
+        color: #fff;
+        font-weight: bold;
+        font-size: 2em;
+        text-decoration: none;
+      }
+
+      .logo span {
+        color: rgba(125, 5, 5, 0.276);
+      }
+
+      nav ul {
+        display: flex;
+       position: relative;
+      }
+
+      nav li {
+        list-style: none;
+      }
+
       nav a {
-       color: #fff;
-       text-decoration: none;
-       margin-left: 1em;
+        color: #fff;
+        text-decoration: none;
+        margin-left: 30px;
+        font-weight: 700;
       }
       .services {
         text-align: center;
@@ -35,17 +67,78 @@
         color: white;
         text-decoration: none;
       }
+
+      .plus {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 40px;
+        }
+
+    .plus figure {
+        width: 30%;
+        background-color: rgba(107, 49, 49, 0.58);
+        padding: 1rem;
+        text-align: center;
+        }
+
+    .plus figcaption {
+        color: white;
+        font-weight: bold;
+        margin-top: 1rem;
+        }
+
+    .plus video {
+        width: 100%;
+        background-size: cover;
+        }
     </style>
   </head>
   <body>
-    <nav>
-        <a href="index.html">C'3POinters</a>
-        <a href="contact.html">Contact</a>
-        <a href="services.html">Services</a>
-      </nav>
+    <header>
+        <a href="index.html" class="logo">C'3POinters</a>
+        <div class="menuToggle" onclick="toggleMenu();"></div>
+        <nav>
+            <ul>
+                <li><a href="code.html" onclick="toggleMenu();">Code</a></li>
+                <li><a href="contact.html" onclick="toggleMenu();">Team</a></li>
+                <li><a href="services.html" onclick="toggleMenu();">Design</a></li>
+            </ul>
+        </nav>
+      </header>
+  
+      <script type="text/javascript">
+        window.addEventListener('scroll', function() {
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky" , window.scrollY > 0)
+        } )
+      </script>
     <div class="services">
-      <h1>Services</h1>
-      <a href="#">Lien</a>
+      <h1>Tests</h1>
     </div>
+    <section class="plus altsection" id="plus">
+        <figure>
+            <video width="300" height="200" controls poster="fond_yenrj.jpg"   >
+                <source class="video_pac" width="300" height="200" src="video1.mp4">
+            </video>
+            <figcaption>Test1</figcaption>
+        </figure>
+    
+        <figure>
+        <video width="300" height="200" controls poster="fond_yenrj.jpg"   >
+            <source class="video_vmc" width="300" height="200" src="video2.mp4">
+        </video>
+        <figcaption>Test2</figcaption>
+        </figure>
+        
+        <figure>
+        <video width="300" height="200" controls poster="fond_yenrj.jpg"   >
+            <source class="video_poêle" width="300" height="200" src="video2.mp4">
+        </video>
+        <figcaption>Test3</figcaption>
+        </figure>   
+    
+    </section>
+    
   </body>
 </html>
